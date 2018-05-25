@@ -1,4 +1,5 @@
-/target/
+target/
+/deployment/*.jar
 
 ### IntelliJ IDEA ###
 .idea

@@ -4,49 +4,55 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ch.frimtec.raspicontrol</groupId>
-	<artifactId>raspicontrol-demo</artifactId>
+	<artifactId>raspicontrol</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
-	<name>raspicontrol-demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>RasPiControl</name>
+	<description>RaspberryPi based controller applications.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
+
+	<modules>
+		<module>raspicontrol-application</module>
+		<module>raspicontrol-libraries</module>
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<pi4j.version>1.2.M1</pi4j.version>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>ch.frimtec.raspicontrol</groupId>
+				<artifactId>raspicontrol-libraries-fts</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.frimtec.raspicontrol</groupId>
+				<artifactId>raspicontrol-libraries-mockadapter</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.frimtec.raspicontrol</groupId>
+				<artifactId>raspicontrol-libraries-pi4jadapter</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bidib.com.pi4j</groupId>
+				<artifactId>pi4j-core</artifactId>
+				<version>${pi4j.version}</version>
+			</dependency>
+		</dependencies>
 
-
+	</dependencyManagement>
 </project>

@@ -5,4 +5,4 @@ if [[ "$1" == "-debug" ]]; then
     echo "Remote debugging enabled."
     JVM_OPTIONS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
 fi
-java ${JVM_OPTIONS} -jar raspicontrol-demo-*.jar
+sudo java ${JVM_OPTIONS} -Dlogging.config=file:./logback-spring.xml -jar raspicontrol-application-demo-*.jar

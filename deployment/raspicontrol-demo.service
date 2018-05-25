@@ -1,0 +1,14 @@
+[Unit]
+Description=RaspiControl Demo Application
+After=network.target
+
+[Service]
+ExecStart=/home/pi/apps/raspicontrol-demo/start.sh
+WorkingDirectory=/home/pi/apps/raspicontrol-demo
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
